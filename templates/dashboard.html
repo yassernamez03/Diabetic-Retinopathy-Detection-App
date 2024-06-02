@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<style>
+:root {
+  --palette-grey: #fefeff;
+  --palette-lime-green: #8ccfa0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-size: contain;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  padding: 32px;
+  min-height: calc(100vh - 80px);
+}
+
+
+.tile {
+  position: relative;
+  flex: 1 1 calc(33.333% - 96px);
+  padding: 80px 40px; /* Increased padding */
+  margin: 32px; /* Increased margin */
+  background: #292929;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 0 rgba(41, 41, 41, 0.25);
+  transform-origin: 50% 100% 0;
+  transition-property: transform, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(.76,-0.35,.21,1.45);
+  border-radius: 1em;
+}
+
+.tile:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: none;
+}
+
+.tile a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tile h1 {
+  font-weight: 700;
+  color: var(--palette-grey);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tile:after,
+.tile::after {
+  content: '';
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  height: calc(100% - 0.5em);
+  width: calc(100% - 0.5em);
+  pointer-events: none;
+  opacity: 0.15;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.tile.profiles {
+  background-color: #0dc273;
+  background-image: radial-gradient(circle farthest-corner at 100% 0, var(--palette-lime-green), transparent);
+}
+
+.tile.profiles:after,
+.tile.profiles::after {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/911489/svg_rocket.svg');
+  background-position: 50% 70%;
+  background-size: 230px;
+}
+
+.tile.teams {
+  background-color: #0dc273;
+  background-image: radial-gradient(circle farthest-corner at 100% 0, var(--palette-lime-green), transparent);
+}
+
+.tile.teams:after,
+.tile.teams::after {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/911489/svg_group.svg');
+}
+
+.tile.business {
+    background-color: #0dc273;
+    background-image: radial-gradient(circle farthest-corner at 100% 0, var(--palette-lime-green), transparent);
+}
+
+.tile.business:after,
+.tile.business::after {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/911489/svg_trend.svg');
+  background-size: 180px;
+}
+</style>
+
+<div class="stage">
+  <div class="tile profiles">
+    <a href="{{url_for('binaryclassifier')}}">
+      <h1>DR Detection</h1>
+    </a>
+  </div>
+  <div class="tile teams">
+    <a href="{{url_for('multiclassifier')}}">
+      <h1>DR classification</h1>
+    </a>
+  </div>
+  <div class="tile business">
+    <a href="{{url_for('segmentationclassifier')}}">
+      <h1>DR Segmentation</h1>
+    </a>
+  </div>
+</div>
+
+<script>
+    $("body").css("overflow-y", "hidden");
+</script>
+
+{% endblock %}

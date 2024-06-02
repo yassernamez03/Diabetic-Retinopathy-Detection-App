@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+{% block title %}Prediction Results{% endblock %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+    ul {
+        list-style: none;
+    }
+
+    .tabs {
+        width: 90%;
+        height: 100px;
+        margin: auto;
+        margin-top: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .tabs li {
+        background-color: var(--primary);
+        width: 25%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .5s;
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -ms-transition: .5s;
+        -o-transition: .5s;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 5px;
+        border-radius: 6px;
+        color: white;
+    }
+
+    .tabs li:hover {
+        background-color: #26656a;
+        color: var(white);
+    }
+
+    #active {
+        background-color: #26656a;
+        color: var(white) !important;
+    }
+
+    .contents {
+        width: 90%;
+        margin: auto;
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .box {
+        gap: 20px;
+        background-color: #26656a;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        padding: 20px;
+        width: 100%;
+        animation: moving 1s ease;
+        -webkit-animation: moving 1s ease;
+    }
+
+    .box img {
+        width: 550px; 
+        height: auto;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+
+    .box h3 {
+        color: white;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .box p {
+        font-weight: bold;
+        color: white;
+        opacity: .5;
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    .show {
+        display: flex;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    @keyframes moving {
+        from {
+            transform: translateX(-50px);
+            -webkit-transform: translateX(-50px);
+            -moz-transform: translateX(-50px);
+            -ms-transform: translateX(-50px);
+            -o-transform: translateX(-50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0px);
+            -webkit-transform: translateX(0px);
+            -moz-transform: translateX(0px);
+            -ms-transform: translateX(0px);
+            -o-transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+</style>
+
+<ul class="tabs">
+    <li id="active" data-id="0">Microaneurysms</li>
+    <li data-id="1">Haemorrhages</li>
+    <li data-id="2">Hard Exudates</li>
+</ul>
+
+<div class="contents">
+
+    <div class="box" data-content="0">
+        <img src="{{ url_for('static', filename='uploads/' + results.Microaneurysms.filename) }}" alt="Uploaded Image"
+            style="max-width: 100%;">
+        <div>
+            <h3>Microaneurysms Segmentation</h3>
+            <p>
+                Microaneurysms are small outpouchings in retinal blood vessels commonly associated with diabetic retinopathy. In this segmented image, areas indicative of microaneurysms have been identified and highlighted. Their presence suggests vascular abnormalities and increased risk of diabetic retinopathy progression. Accurate segmentation enables early detection and intervention, crucial for preventing vision-threatening complications.
+            </p>
+        </div>
+    </div>
+
+    <div class="box hide" data-content="1">
+        <img src="{{ url_for('static', filename='uploads/' + results.Haemorrhages.filename) }}" alt="Uploaded Image"
+            style="max-width: 100%;">
+        <div>
+            <h3>Haemorrhages Segmentation</h3>
+            <p>
+                Haemorrhages, or retinal bleeding, are a hallmark feature of diabetic retinopathy, reflecting damage to retinal blood vessels. This segmented image showcases areas of haemorrhages, which vary in size and severity. Their detection is pivotal in assessing disease progression and guiding treatment decisions. Severe haemorrhages can lead to vision loss if left untreated, underscoring the importance of early detection through precise segmentation techniques.
+            </p>
+        </div>
+    </div>
+
+    <div class="box hide" data-content="2">
+        <img src="{{ url_for('static', filename='uploads/' + results.HardExudates.filename) }}" alt="Uploaded Image"
+            style="max-width: 100%;">
+        <div>
+            <h3>Hard Exudates Segmentation</h3>
+            <p>
+                Hard exudates are lipid deposits that accumulate in the retina due to leakage from damaged blood vessels, commonly observed in diabetic retinopathy. This segmented image highlights regions where hard exudates are present, appearing as yellowish-white lesions with well-defined borders. Their identification aids in assessing disease severity and response to treatment. Monitoring changes in hard exudates over time is crucial for optimizing patient care and preserving visual function.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://rendro.github.io/easy-pie-chart/javascripts/jquery.easy-pie-chart.js"></script>
+<script>
+    'use strict';
+    const tabs = document.querySelectorAll('[data-id]');
+    const contents = document.querySelectorAll('[data-content]');
+    let id = 0;
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            if (tabs[id].hasAttribute('id')) {
+                tabs[id].removeAttribute('id');
+            }
+            tab.setAttribute('id', 'active');
+            id = tab.getAttribute('data-id');
+            contents.forEach(function (box) {
+                box.classList.add('hide');
+                if (box.getAttribute('data-content') == id) {
+                    box.classList.remove('hide');
+                    box.classList.add('show');
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

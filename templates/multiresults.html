@@ -1,0 +1,337 @@
+{% extends "base.html" %}
+{% block title %}Prediction Results{% endblock %}
+{% block content %}
+<meta id="my-data" data-name="{{name}}" data-other="{{other}}">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+    ul {
+        list-style: none;
+    }
+
+    .tabs {
+        width: 90%;
+        height: 100px;
+        margin: auto;
+        margin-top: 150px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .tabs li {
+        background-color: var(--primary);
+        width: 25%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .5s;
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -ms-transition: .5s;
+        -o-transition: .5s;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 5px;
+        border-radius: 6px;
+        color: white;
+    }
+
+    .tabs li:hover {
+        background-color: #26656a;
+        color: var(white);
+    }
+
+    #active {
+        background-color: #26656a;
+        color: var(white) !important;
+    }
+
+    .contents {
+        width: 90%;
+        margin: auto;
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .box {
+        gap: 20px;
+        background-color: #26656a;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        padding: 20px;
+        width: 100%;
+        animation: moving 1s ease;
+        -webkit-animation: moving 1s ease;
+    }
+
+    .box img {
+        width: 550px; 
+        height: auto;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+
+    .box h3 {
+        color: white;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .box p {
+        font-weight: bold;
+        color: white;
+        opacity: .5;
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    .show {
+        display: flex;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .container {
+        max-width: 600px;
+        width: 150%;
+        position: relative;
+        margin: 20px auto;
+        color: white;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+      }
+      svg {
+        width: 100%;
+        padding-bottom: 60%;
+        height: 1px;
+        overflow: visible;
+      }
+      .bg {
+        fill: #432142;
+      }
+
+    @keyframes moving {
+        from {
+            transform: translateX(-50px);
+            -webkit-transform: translateX(-50px);
+            -moz-transform: translateX(-50px);
+            -ms-transform: translateX(-50px);
+            -o-transform: translateX(-50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0px);
+            -webkit-transform: translateX(0px);
+            -moz-transform: translateX(0px);
+            -ms-transform: translateX(0px);
+            -o-transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+</style>
+
+<ul class="tabs">
+    <li id="active" data-id="0">Pre-Processed</li>
+    <li data-id="1">Microneurasim</li>
+    <li data-id="2">Hoamroed</li>
+    <li data-id="3">Hard Exauts</li>
+</ul>
+
+<div class="contents">
+
+    <div class="box show" data-content="0">
+        <img src="{{ url_for('static', filename='uploads/' + results.Preprocessed.filename) }}" alt="Uploaded Image"
+            style="max-width: 100%;">
+        <div>
+            <h3>Preprocessed Image</h3>
+            <p>
+                This preprocessed retinal image has undergone enhancement and normalization techniques to optimize its quality for analysis. Preprocessing helps to improve the accuracy of subsequent segmentation algorithms by enhancing important features and reducing noise. The resulting image serves as the foundation for identifying specific lesions associated with diabetic retinopathy, such as microaneurysms, haemorrhages, and hard exudates.
+            </p>
+            <div class="container" id="chart1">
+                <svg viewBox="0 0 600 400"></svg>
+              </div>
+        </div>
+    </div>
+
+    <div class="box hide" data-content="1">
+        <img src="{{ url_for('static', filename='uploads/' + results.Microaneurysms.filename) }}" alt="Uploaded Image"
+            style="max-width: 100%;">
+        <div>
+            <h3>Microaneurysms Segmentation</h3>
+            <p>
+                Microaneurysms are small outpouchings in retinal blood vessels commonly associated with diabetic retinopathy. In this segmented image, areas indicative of microaneurysms have been identified and highlighted. Their presence suggests vascular abnormalities and increased risk of diabetic retinopathy progression. Accurate segmentation enables early detection and intervention, crucial for preventing vision-threatening complications.
+            </p>
+            <div class="container" id="chart2">
+                <svg viewBox="0 0 600 400"></svg>
+              </div>
+        </div>
+    </div>
+
+    <div class="box hide" data-content="2">
+        <img src="{{ url_for('static', filename='uploads/' + results.Haemorrhages.filename) }}" alt="Uploaded Image"
+            style="max-width: 100%;">
+        <div>
+            <h3>Haemorrhages Segmentation</h3>
+            <p>
+                Haemorrhages, or retinal bleeding, are a hallmark feature of diabetic retinopathy, reflecting damage to retinal blood vessels. This segmented image showcases areas of haemorrhages, which vary in size and severity. Their detection is pivotal in assessing disease progression and guiding treatment decisions. Severe haemorrhages can lead to vision loss if left untreated, underscoring the importance of early detection through precise segmentation techniques.
+            </p>
+            <div class="container" id="chart3">
+                <svg viewBox="0 0 600 400"></svg>
+              </div>
+        </div>
+    </div>
+
+    <div class="box hide" data-content="3">
+        <img src="{{ url_for('static', filename='uploads/' + results.HardExudates.filename) }}" alt="Uploaded Image"
+            style="max-width: 100%;">
+        <div>
+            <h3>Hard Exudates Segmentation</h3>
+            <p>
+                Hard exudates are lipid deposits that accumulate in the retina due to leakage from damaged blood vessels, commonly observed in diabetic retinopathy. This segmented image highlights regions where hard exudates are present, appearing as yellowish-white lesions with well-defined borders. Their identification aids in assessing disease severity and response to treatment. Monitoring changes in hard exudates over time is crucial for optimizing patient care and preserving visual function.
+            </p>
+            <div class="container" id="chart4">
+                <svg viewBox="0 0 600 400"></svg>
+              </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+    'use strict';
+    const tabs = document.querySelectorAll('[data-id]');
+    const contents = document.querySelectorAll('[data-content]');
+    let id = 0;
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            if (tabs[id].hasAttribute('id')) {
+                tabs[id].removeAttribute('id');
+            }
+            tab.setAttribute('id', 'active');
+            id = tab.getAttribute('data-id');
+            contents.forEach(function (box) {
+                box.classList.add('hide');
+                if (box.getAttribute('data-content') == id) {
+                    box.classList.remove('hide');
+                    box.classList.add('show');
+                }
+            });
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var resultsData = {{ results | tojson | safe }};
+
+        // Now 'resultsData' contains your dictionary, you can use it in your JavaScript code
+        console.log(resultsData);
+        var data1 = [
+        {"name": "No DR", "value":  resultsData['Preprocessed']['proba']['0'] },
+        {"name": "Mild", "value": resultsData['Preprocessed']['proba']['1']},
+        {"name": "Moderate", "value": resultsData['Preprocessed']['proba']['2']},
+        {"name": "Severe", "value": resultsData['Preprocessed']['proba']['3']},
+        {"name": "P DR", "value": resultsData['Preprocessed']['proba']['4']},
+        ];
+        
+        var data2 = [
+        {"name": "No DR", "value":  resultsData['Microaneurysms']['proba']['0'] },
+        {"name": "Mild", "value":  resultsData['Microaneurysms']['proba']['1'] },
+        {"name": "Moderate", "value":  resultsData['Microaneurysms']['proba']['2'] },
+        {"name": "Severe", "value":  resultsData['Microaneurysms']['proba']['3'] },
+        {"name": "P DR", "value":  resultsData['Microaneurysms']['proba']['4'] }
+      ]
+        
+        var data3 = [
+        {"name": "No DR", "value": resultsData['Haemorrhages']['proba']['0']},
+        {"name": "Mild", "value": resultsData['Haemorrhages']['proba']['1']},
+        {"name": "Moderate", "value": resultsData['Haemorrhages']['proba']['2']},
+        {"name": "Severe", "value": resultsData['Haemorrhages']['proba']['3']},
+        {"name": "P DR", "value": resultsData['Haemorrhages']['proba']['4']},
+        ];
+        
+        var data4 = [
+        {"name": "No DR", "value": resultsData['HardExudates']['proba']['0']},
+        {"name": "Mild", "value": resultsData['HardExudates']['proba']['1']},
+        {"name": "Moderate", "value": resultsData['HardExudates']['proba']['2']},
+        {"name": "Severe", "value": resultsData['HardExudates']['proba']['3']},
+        {"name": "P DR", "value": resultsData['HardExudates']['proba']['4']},
+        ];
+        function createChart(id, data) {
+          var svg = d3.select("#" + id + " svg");
+  
+          var bar = svg.selectAll("g")
+            .data(data)
+            .enter().append("g");
+  
+          bar.append("rect")
+            .attr("width", 80)
+            .attr("height", 220)
+            .attr("opacity", 0.5)
+            .attr("x", function(d, i) { return i * 84; })
+            .attr("fill", "#acb3c0")
+            .attr("y", 50);
+  
+          bar.append("rect")
+            .attr("width", 80)
+            .attr("height", 0)
+            .attr("opacity", 0.9)
+            .attr("x", function(d, i) { return i * 84; })
+            .attr("fill", "#092943")
+            .attr("y", 270)
+            .transition()
+            .duration(1000)
+            .attr("height", function(d) { return Math.min(d.value * 3, 220); })
+            .attr("y", function(d) { 
+                const barHeight = Math.min(d.value * 3, 220);
+                return 270 - barHeight; 
+            });
+  
+          bar.append("text")
+          .attr("fill", "white")
+
+            .attr("x", function(d, i) { return i * 84 + 40; })
+            .attr("y", 35)
+            .attr("text-anchor", "middle")
+            .text(function(d) { return d.name; });
+  
+          bar.append("text")
+            .attr("fill", "white")
+            .attr("x", function(d, i) { return i * 84 + 40; })
+            .attr("y", 270)
+            .attr("text-anchor", "middle")
+            .text(function(d) { return d.value + " %"; })
+            .transition()
+            .duration(1000)
+            .attr("y", function(d) { 
+                const barHeight = Math.min(d.value * 3, 220);
+                return Math.max(80, 270 - barHeight - 10);
+            });
+        }
+  
+        createChart("chart1", data1);
+        createChart("chart2", data2);
+        createChart("chart3", data3);
+        createChart("chart4", data4);
+      });
+
+</script>
+{% endblock %}
