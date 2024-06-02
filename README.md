@@ -15,7 +15,7 @@ This repository contains a Flask web application for the detection, classificati
 ## Directory Structure
 
 ## Prerequisites
-
+you can find the model in my kaggle https://www.kaggle.com/yassernamez/models
 ## Contributing
 Contributions are welcome! Please create a pull request or open an issue to discuss your ideas.
 
