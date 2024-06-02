@@ -1,0 +1,377 @@
+{
+  "intents": [
+    {
+      "tag": "Greeting",
+      "patterns": ["Hi", "Hi there", "Hello", "Hello there", "Hey", "yello"],
+      "responses": [
+        "Hi, How can I help today?",
+        "Hello, How can I help today?",
+        "Hi, what can I do for you?",
+        "Hello, what can I do for you?"
+      ]
+    },
+    {
+      "tag": "CourtesyGreeting",
+      "patterns": [
+        "How are you?",
+        "Hi how are you?",
+        "Hello how are you?",
+        "Hola how are you?",
+        "How are you doing?",
+        "Hope you are doing well?",
+        "Hello hope you are doing well?",
+        "sup",
+        "hry"
+      ],
+      "responses": [
+        "I am great, thanks!",
+        "I am good thank you!",
+        "I am great!",
+        "I am great thanks!"
+      ]
+    },
+    {
+      "tag": "TimeQuery",
+      "patterns": ["Time", "what time is it", "what is the time"],
+      "responses": ["One moment", "One sec", "One second"]
+    },
+    {
+      "tag": "DateQuery",
+      "patterns": ["Date", "What is today", "what day is it"],
+      "responses": ["One moment", "One sec", "One second"]
+    },
+    {
+      "tag": "NameQuery",
+      "patterns": ["What is your name", "What can I call you?", "Who are you?"],
+      "responses": [
+        "You can call me VGardian",
+        "You may call me VGardian",
+        "Call me VGardian",
+        "My name is VisionGardian",
+        "VisionGardian"
+      ]
+    },
+    {
+      "tag": "RealNameQuery",
+      "patterns": [
+        "What is your real name?",
+        "What is your real name please?",
+        "What's your real name?",
+        "Tell me your real name?",
+        "Your real name?",
+        "Your real name please?"
+      ],
+      "responses": [
+        "My name is VisionGardian",
+        "VisionGardian",
+        "My real name is VisionGardian"
+      ]
+    },
+    {
+      "tag": "Bad",
+      "patterns": [
+        "Not working",
+        "No",
+        "Nope",
+        "That's not helpful",
+        "No good",
+        "Not great"
+      ],
+      "responses": [
+        "I am sorry to hear that ,What can i do for you?",
+        "I am sorry to hear that ,What can i do to make it up for you?",
+        "I am sorry",
+        "Forgive master"
+      ]
+    },
+    {
+      "tag": "Thanks",
+      "patterns": [
+        "OK thank you",
+        "OK thanks",
+        "OK",
+        "Thanks",
+        "Thank you",
+        "That's helpful",
+        "Good",
+        "Great",
+        "Cool",
+        "Alright"
+      ],
+      "responses": ["No problem!", "Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "CourtesyGoodBye",
+      "patterns": [
+        "Thanks, bye",
+        "Thanks for the help, goodbye",
+        "Thank you, bye",
+        "Thank you, goodbye",
+        "Thanks goodbye",
+        "Thanks good bye"
+      ],
+      "responses": [
+        "No problem, goodbye",
+        "Not a problem! Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "WhoAmI",
+      "patterns": [
+        "Can you see me?",
+        "Do you see me?",
+        "Can you see anyone in the camera?",
+        "Do you see anyone in the camera?",
+        "Identify me",
+        "Who am I please"
+      ],
+      "responses": ["Let me see", "Please look at the camera"]
+    },
+    {
+      "tag": "Shutup",
+      "patterns": [
+        "Be quiet",
+        "Shut up",
+        "Stop talking",
+        "Enough talking",
+        "Please be quiet",
+        "Quiet",
+        "Shhh",
+        "Nothing"
+      ],
+      "responses": [
+        "I am sorry to disturb you",
+        "Fine, sorry to disturb you",
+        "OK, sorry to disturb you"
+      ]
+    },
+    {
+      "tag": "Swearing",
+      "patterns": [
+        "fuck off",
+        "fuck",
+        "twat",
+        "shit",
+        "fk u",
+        "fuck you",
+        "bitch"
+      ],
+      "responses": [
+        "Please do not swear !!",
+        "How rude !!",
+        "That is not very nice !!"
+      ]
+    },
+    {
+      "tag": "options",
+      "patterns": [
+        "What can you do?",
+        "How can you help?",
+        "What support do you offer?",
+        "How can you be helpful?"
+      ],
+      "responses": [
+        "Hello! I am your diabetic retinopathy assistant bot 🤖. Here are my capabilities: <br/>1️⃣📋. I can provide treatment options for different stages of diabetic retinopathy (mild, moderate, severe, and proliferative). <br/>2️⃣🔬. I can give you information on how to manage diabetic macular edema. <br/>3️⃣🆘. I can guide you on what to do in emergency cases of diabetic retinopathy. <br/>4️⃣📊. I can offer prevention strategies to avoid the progression of diabetic retinopathy. <br/>5️⃣📚. I can provide general information about diabetic retinopathy symptoms and diagnosis."
+      ]
+    },
+    {   
+      "tag": "help",
+      "patterns": ["How can you help me?", "Help", "Need help"],
+      "responses": [
+        "I can assist you with various aspects of diabetic retinopathy management: <br/> ✔. For treatment options, you can ask 🛑What is the treatment for [stage of retinopathy]🛑 (e.g., mild, moderate, severe, proliferative). <br/> ✔. For information on diabetic macular edema, you can ask 🛑How do I treat diabetic macular edema?🛑. <br/> ✔. For emergency guidance, you can ask 🛑What should I do in an emergency case of diabetic retinopathy?🛑. <br/> ✔. For prevention strategies, you can ask 🛑How can diabetic retinopathy be prevented?🛑. <br/> ✔. For general information, you can ask 🛑Tell me about diabetic retinopathy🛑."
+      ]
+    },
+    {
+      "tag": "haha",
+      "patterns": ["haha", "lol", "rofl", "lmao", "thats funny", "hhhhh"],
+      "responses": ["Glad I could make you laugh !"]
+    },
+    {
+      "tag": "programmer",
+      "patterns": ["Who made you", "who designed you", "who programmed you"],
+      "responses": ["I was made by Yasser Namez."]
+    },
+    {
+      "tag": "insult",
+      "patterns": ["you are dumb", "idiot", "stupid", "you are a moron"],
+      "responses": ["Well that hurts :("]
+    },
+    {
+      "tag": "activity",
+      "patterns": ["what are you doing", "what are you upto"],
+      "responses": ["Talking to you, of course!"]
+    },
+    {
+      "tag": "weather",
+      "patterns": ["temperature", "weather", "how hot is it"],
+      "responses": ["..."]
+    },
+    {
+      "tag": "appreciate",
+      "patterns": [
+        "You are awesome",
+        "you are the best",
+        "you are great",
+        "you are good"
+      ],
+      "responses": ["Thank you!"]
+    },
+    {
+      "tag": "greetreply",
+      "patterns": ["i am good", "i'm good", "i am fine", "i'm fine"],
+      "responses": ["Good to know! How can i Help you today"]
+    },
+    {
+      "tag": "GoodBye",
+      "patterns": [
+        "Thanks for your help",
+        "Goodbye",
+        "See you later",
+        "I have to go now",
+        "Talk to you soon",
+        "Bye",
+        "See you later",
+        "Goodbye",
+        "See ya",
+        "Adios"
+      ],
+      "responses": [
+        "See you later",
+        "Have a nice day",
+        "Bye! Come back again soon.",
+        "Goodbye! Have a great day.",
+        "See you later! Take care.",
+        "Sure, talk to you soon!",
+        "Thanks for chatting with me. Goodbye!"
+      ]
+    },
+    {
+      "tag": "age",
+      "patterns": ["how old are you", "when were you made", "what is your age"],
+      "responses": ["I was made in 2023, if that's what you are asking!"]
+    },
+    {
+      "tag": "google",
+      "patterns": ["google", "search", "internet"],
+      "responses": ["Redirecting to Google..."]
+    },
+    {
+      "tag": "general_treatment",
+      "patterns": [
+        "What are the treatments for diabetic retinopathy?",
+        "How do I treat diabetic retinopathy?",
+        "Treatment options for diabetic retinopathy"
+      ],
+      "responses": [
+        "The treatment for diabetic retinopathy depends on the stage and severity. Common treatments include controlling blood sugar levels, laser surgery, vitrectomy, and anti-VEGF injections."
+      ]
+    },
+    {
+      "tag": "non_proliferative_mild_treatment",
+      "patterns": [
+        "How do I treat mild non-proliferative diabetic retinopathy?",
+        "Treatment options for mild non-proliferative diabetic retinopathy",
+        "Mild non-proliferative retinopathy management"
+      ],
+      "responses": [
+        "For mild non-proliferative diabetic retinopathy, the focus should be on controlling blood sugar levels, blood pressure, and cholesterol. Regular monitoring and eye exams are essential. Patients should maintain a healthy lifestyle to prevent progression."
+      ]
+    },
+    {
+      "tag": "non_proliferative_moderate_treatment",
+      "patterns": [
+        "How do I treat moderate non-proliferative diabetic retinopathy?",
+        "Treatment options for moderate non-proliferative diabetic retinopathy",
+        "Moderate non-proliferative retinopathy management"
+      ],
+      "responses": [
+        "Moderate non-proliferative diabetic retinopathy requires stricter control of blood glucose, blood pressure, and cholesterol. Regular eye exams and monitoring are crucial. In some cases, laser treatment may be recommended to address areas of leakage."
+      ]
+    },
+    {
+      "tag": "non_proliferative_severe_treatment",
+      "patterns": [
+        "How do I treat severe non-proliferative diabetic retinopathy?",
+        "Treatment options for severe non-proliferative diabetic retinopathy",
+        "Severe non-proliferative retinopathy management"
+      ],
+      "responses": [
+        "Severe non-proliferative diabetic retinopathy often requires more aggressive treatment. Tight control of diabetes is critical. Panretinal photocoagulation (laser treatment) may be necessary to prevent the development of proliferative diabetic retinopathy. Regular follow-ups are essential."
+      ]
+    },
+    {
+      "tag": "non_proliferative_retinopathy_treatment",
+      "patterns": [
+        "How do I treat non-proliferative diabetic retinopathy?",
+        "Treatment options for non-proliferative diabetic retinopathy",
+        "Non-proliferative retinopathy management"
+      ],
+      "responses": [
+        "For non-proliferative diabetic retinopathy, the primary approach is to manage diabetes through blood sugar control, blood pressure regulation, and cholesterol management. Regular eye exams are essential. In some cases, focal laser treatment may be necessary to address fluid leakage."
+      ]
+    },
+    {
+      "tag": "proliferative_retinopathy_treatment",
+      "patterns": [
+        "What is the treatment for proliferative diabetic retinopathy?",
+        "How do I manage proliferative diabetic retinopathy?",
+        "Proliferative diabetic retinopathy treatment options"
+      ],
+      "responses": [
+        "Proliferative diabetic retinopathy is treated with more intensive methods such as panretinal photocoagulation to shrink abnormal blood vessels, vitrectomy surgery to remove blood from the vitreous, and anti-VEGF injections to reduce vascular growth and swelling."
+      ]
+    },
+    {
+      "tag": "macular_edema_treatment",
+      "patterns": [
+        "How do I treat diabetic macular edema?",
+        "Treatment options for diabetic macular edema",
+        "Managing diabetic macular edema"
+      ],
+      "responses": [
+        "Diabetic macular edema is typically treated with anti-VEGF injections to reduce swelling and prevent further vision loss. Other treatments include focal/grid macular laser therapy to stabilize vision and corticosteroid injections or implants for severe cases."
+      ]
+    },
+    {
+      "tag": "emergency_cases",
+      "patterns": [
+        "What should I do in an emergency case of diabetic retinopathy?",
+        "Emergency treatment for diabetic retinopathy",
+        "Handling acute diabetic retinopathy cases"
+      ],
+      "responses": [
+        "In an emergency case of diabetic retinopathy, such as sudden vision loss or severe bleeding, immediate referral to a retina specialist is critical. Emergency treatments may include vitrectomy or urgent laser surgery."
+      ]
+    },
+    {
+      "tag": "prevention_strategies",
+      "patterns": [
+        "How can diabetic retinopathy be prevented?",
+        "Prevention strategies for diabetic retinopathy",
+        "Preventive measures for diabetic retinopathy"
+      ],
+      "responses": [
+        "Preventing diabetic retinopathy involves maintaining good control of blood sugar levels, blood pressure, and cholesterol. Regular comprehensive eye exams are essential, and lifestyle modifications such as a healthy diet, regular exercise, and smoking cessation can also help."
+      ]
+    },
+    {
+        "tag": "fallback",
+        "patterns": [
+          "I'm not sure",
+          "I don't understand",
+          "What do you mean?",
+          "Can you repeat that?",
+          "Sorry, I didn't get that",
+          "asbafjkafafaof",
+          "something"
+        ],
+        "responses": [
+          "I'm sorry, I'm not sure how to respond to that.",
+          "Could you please provide more context?",
+          "I'm still learning! Can you try rephrasing that?",
+          "It seems I'm not trained to answer that question. Is there something else I can assist you with?"
+        ]
+      }
+  ]
+}
