@@ -30,4 +30,4 @@ This project is licensed under the MIT License.
 
 Watch the demo video of the application in action:
 
-[![Watch the demo video]([https://img.youtube.com/vi/YourVideoID/0.jpg)](https://www.youtube.com/watch?v=YourVideoID](https://youtu.be/9ON0h4scqLo?si=CQAmwA3o3DhbtOZ1))
+[![Watch the demo video](https://img.youtube.com/vi/9ON0h4scqLo/0.jpg)](https://youtu.be/9ON0h4scqLo?si=gBHP7_JI-GCdjVu3)
