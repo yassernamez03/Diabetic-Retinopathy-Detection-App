@@ -25,3 +25,9 @@ This project is licensed under the MIT License.
 ## Acknowledgements
 - Medical datasets for diabetic retinopathy.
 - Open-source libraries and tools used in this project.
+
+## Demo
+
+Watch the demo video of the application in action:
+
+[![Watch the demo video]([https://img.youtube.com/vi/YourVideoID/0.jpg)](https://www.youtube.com/watch?v=YourVideoID](https://youtu.be/9ON0h4scqLo?si=CQAmwA3o3DhbtOZ1))
